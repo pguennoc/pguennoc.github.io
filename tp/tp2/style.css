@@ -131,3 +131,21 @@ aside li {
 footer {
   margin-top: 10px;
 }
+
+/* Medias */
+
+img {
+  max-width: 100%;
+}
+
+video {
+  max-width: 100%;
+}
+
+/* Responsive */
+
+@media only screen and (max-width : 320px) {
+  .aside {
+    display: none;
+  }
+}
