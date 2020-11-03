@@ -145,10 +145,13 @@ video {
 /* Responsive */
 
 @media only screen and (max-width : 400px) {
-  aside {
-    position: relative;
-    display: inline-block;
-    width:90%;
-    height: auto;
+  body {
+    width : 100%;
+  }
+  main {
+    flex-direction: column;
+  }
+  aside>ul {
+    display: flex;
   }
 }
