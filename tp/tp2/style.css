@@ -144,14 +144,11 @@ video {
 
 /* Responsive */
 
-@media only screen and (max-width : 400px) {
-  body {
-    width : 100%;
-  }
+@media only screen and (max-width : 768px) {
   main {
-    flex-direction: column;
+    flex-direction: row;
   }
   aside>ul {
-    display: flex;
+    display: list-item;
   }
 }
