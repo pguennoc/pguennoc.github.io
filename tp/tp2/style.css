@@ -145,7 +145,7 @@ video {
 /* Responsive */
 
 @media only screen and (max-width : 320px) {
-  .aside {
+  aside {
     display: none;
   }
 }
