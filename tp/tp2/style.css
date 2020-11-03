@@ -144,8 +144,11 @@ video {
 
 /* Responsive */
 
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 400px) {
   aside {
-    display: none;
+    position: relative;
+    display: inline-block;
+    width:90%;
+    height: auto;
   }
 }
