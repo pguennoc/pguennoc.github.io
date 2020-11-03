@@ -143,24 +143,3 @@ video {
 }
 
 /* Responsive */
-
-
-@media only screen and (max-width: 768px) {
-  body {
-    width : 100%;
-  }
-  main {
-    flex-direction: column;
-  }
-  aside>ul {
-    display: flex;
-  }
-}
-@media only screen and (min-width: 768px) {
-  main {
-    flex-direction: row;
-  }
-  aside>ul {
-    display: list-item;
-  }
-}
