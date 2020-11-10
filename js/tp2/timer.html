@@ -9,21 +9,20 @@
     <div id=timer>10</div>
 </body>
 <script>
-    var counter = 10;
-    var decompte = null;
+    var compter = 10;
 
     function timer(){
         counter--;
-        if(counter==0) {
+        if(compter==0) {
             clearInterval(decompte);
             document.getElementById("timer").innerHTML = 0;
         }
         else {
-            document.getElementById("timer").innerHTML = counter;
+            document.getElementById("timer").innerHTML = compter;
         }
     }
     function start(){
-        decompte = setInterval(timer, 1000);
+        var decompte = setInterval(timer, 1000);
     }
 
     window.addEventListener("load", () => { start(); });
