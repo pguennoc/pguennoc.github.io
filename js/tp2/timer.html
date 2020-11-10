@@ -9,17 +9,17 @@
     <div id=timer>10</div>
 </body>
 <script>
-    var compter = 10;
+    var compteur = 10;
     var decompte = null
 
     function timer(){
-        compter--;
-        if(compter==0) {
+        compteur--;
+        if(compteur==0) {
             clearInterval(decompte);
             document.getElementById("timer").innerHTML = 0;
         }
         else {
-            document.getElementById("timer").innerHTML = compter;
+            document.getElementById("timer").innerHTML = compteur;
         }
     }
     function start(){
