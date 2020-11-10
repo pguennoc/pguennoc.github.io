@@ -6,19 +6,20 @@
     <title>TP2 - Timer</title>
 </head>
 <body>
-    <div id=timer></div>
+    <div id=timer>10</div>
 </body>
 <script>
-    var counter = 10;
-    var decompte = null;
+    var compteur = 10;
+    var decompte = null
 
     function timer(){
-        counter--;
-        if(counter==0) {
+        compteur--;
+        if(compteur==0) {
             clearInterval(decompte);
+            document.getElementById("timer").innerHTML = 0;
         }
         else {
-            document.getElementById("timer").innerHTML = counter;
+            document.getElementById("timer").innerHTML = compteur;
         }
     }
     function start(){
