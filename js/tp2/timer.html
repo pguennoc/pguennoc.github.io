@@ -10,6 +10,7 @@
 </body>
 <script>
     var compter = 10;
+    var decompte = null
 
     function timer(){
         compter--;
@@ -22,7 +23,7 @@
         }
     }
     function start(){
-        var decompte = setInterval(timer, 1000);
+        decompte = setInterval(timer, 1000);
     }
 
     window.addEventListener("load", () => { start(); });
