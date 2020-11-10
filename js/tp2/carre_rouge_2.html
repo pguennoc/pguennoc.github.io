@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - Canvas</title>
+</head>
+<body>
+    <canvas id="carré" width="300"></canvas>
+</body>
+<script>
+    window.addEventListener("load", () => {
+        var canvas = document.getElementById('carré');
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'red';
+        ctx.fillRect(0, 10, 100, 100);
+
+        var i = 0;
+        setTimeout(() => {
+            var inter = setInterval(translation, 100);
+
+            function translation() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.translate(10,0)
+                ctx.fillRect(0, 10, 100, 100);
+        
+                i++;
+                console.log(i);
+                if (i>=(canvas.width/10)-10) {
+                    clearInterval(inter);
+                }
+            }
+        }, 2000);
+    });
+</script>
+</html>

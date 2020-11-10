@@ -6,14 +6,14 @@
     <title>TP2 - Canvas</title>
 </head>
 <body>
-    <canvas id="carré" width="100%" height="100%"></canvas>
+    <canvas id="carré" width="300"></canvas>
 </body>
 <script>
     var canvas = document.getElementById('carré');
     var ctx = canvas.getContext('2d');
 
     ctx.fillStyle = 'red';
-    ctx.fillRect(10, 10, 100, 100);
+    ctx.fillRect(0, 10, 100, 100);
 
     var i = 0;
     var inter = setInterval(translation, 100);
@@ -21,10 +21,11 @@
     function translation() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.translate(10,0)
-        ctx.fillRect(10, 10, 100, 100);
+        ctx.fillRect(0, 10, 100, 100);
         
         i++;
-        if (i>window.screen.width) {
+        console.log(i);
+        if (i>=(canvas.width/10)-10) {
             clearInterval(inter);
         }
     }
