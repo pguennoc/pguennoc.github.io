@@ -16,6 +16,7 @@
         counter--;
         if(counter==0) {
             clearInterval(decompte);
+            document.getElementById("timer").innerHTML = 0;
         }
         else {
             document.getElementById("timer").innerHTML = counter;
