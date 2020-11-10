@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - Timer</title>
+</head>
+<body>
+    <div id=timer></div>
+</body>
+<script>
+    var counter = 10;
+    var decompte = null;
+
+    function timer(){
+        counter--;
+        if(counter==0) {
+            clearInterval(decompte);
+        }
+        else {
+            document.getElementById("timer").innerHTML = counter;
+        }
+    }
+    function start(){
+        decompte = setInterval(timer, 1000);
+    }
+
+    windows.onload=start();
+</script>
+</html>
