@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - Canvas</title>
+</head>
+<body>
+    <canvas id="carré" width="500" height="400"></canvas>
+</body>
+<script>
+    
+    let Carre = function (width, height, ctx, x, y){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.ctx = ctx;
+            
+        this.draw = function ()
+        {
+            ctx.fillStyle = "red";
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        };
+
+        this.clear = function ()
+        {
+            ctx.clearRect(this.x, this.y, this.width, this.height);
+        };
+
+        this.draw();
+    }
+
+    let canvas = document.getElementById('carré');
+    let ctx = canvas.getContext("2d");
+
+    function translation (carre)
+    {
+        let inter = setInterval(() => {
+
+            carre.clear();
+            carre.x += 10;
+            carre.draw();
+
+            if (carre.x + carre.width >= canvas.width - 10) clearInterval(inter);
+
+        }, 100);
+    }
+
+    window.addEventListener('load', (event) => {
+
+        for(let i = 0; i < 10; i++)
+        {
+            let C = new Carre(10, 10, ctx, 10 , 10 + i * 15);
+            setTimeout(() => translation(C), 1000 * i);
+        }
+
+    });
+    
+</script>
+</html>
