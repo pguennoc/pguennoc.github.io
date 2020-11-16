@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP2 - Canvas</title>
+    <title>TP3 - Canvas - requestAnimationFrame</title>
 </head>
 <body>
-    <canvas id="carré" width="500" height="400"></canvas>
+    <canvas id="animatedElem"></canvas>
 </body>
 <script>
-    
     let Carre = function (width, height, ctx, x, y){
         this.x = x;
         this.y = y;
@@ -31,31 +30,37 @@
         this.draw();
     }
 
-    let canvas = document.getElementById('carré');
+    let canvas = document.getElementById('animatedElem');
     let ctx = canvas.getContext("2d");
+
+    function pausecomp(millis) 
+	{
+		var date = new Date();
+		var curDate = null;
+		do { 
+			curDate = new Date(); 
+		} while(curDate-date < millis);
+	}
 
     function translation (carre)
     {
-        let inter = setInterval(() => {
+        for (let i = 0; i*10 < 100; i++) {
 
+            pausecomp(1000); 
             carre.clear();
             carre.x += 10;
             carre.draw();
 
-            if (carre.x + carre.width >= canvas.width - 10) clearInterval(inter);
-
-        }, 100);
+            console.log(i);
+        }
     }
 
-    window.addEventListener('load', (event) => {
-
-        for(let i = 0; i < 10; i++)
-        {
-            let C = new Carre(30, 30, ctx, 10 , 10 + i * 40);
-            setTimeout(() => translation(C), 1000 * i);
-        }
-
+    window.addEventListener("load", () => {
+        let C = new Carre(30, 30, ctx, 10 , 10);
+        
+        translation(C);
     });
     
+
 </script>
 </html>
