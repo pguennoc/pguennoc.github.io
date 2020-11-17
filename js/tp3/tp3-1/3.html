@@ -22,6 +22,10 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
         };
 
+        this.move = function(px){
+            this.x += px;
+        };
+
         this.clear = function ()
         {
             ctx.clearRect(this.x, this.y, this.width, this.height);
@@ -43,26 +47,29 @@
 		} while(curDate-date < millis);
 	}
 
-    function translation (p)
+    function translation (tps)
     {
-        let lastFrame = new Date();
 
-        let inter = setInterval(() => {
+        let delta = new Date()-lastFrame;
 
-            carre.clear();
-            carre.x += new Date() - lastFrame;
-            carre.draw();
+        carre.clear();
+        carre.move(delta);
+        carre.draw();
 
-            if (carre.x + carre.width >= canvas.width - 10) clearInterval(inter);
+        if (carre.x + delta >= canvas.width - 10) return cancelAnimationFrame(animation);
 
-            lastFrame = new Date();
+        animation = requestAnimationFrame(translation);
 
-            pausecomp(p)
+        lastFrame = new Date();
 
-        }, 16);
+        pausecomp(tps)
     }
 
     window.addEventListener("load", () => {
+        lastFrame = new Date();
+
+        animation = requestAnimationFrame(translation);
+
         translation(100);
     });
     

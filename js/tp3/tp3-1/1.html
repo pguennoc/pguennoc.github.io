@@ -22,6 +22,10 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
         };
 
+        this.move = function(px){
+            this.x += px;
+        };
+
         this.clear = function ()
         {
             ctx.clearRect(this.x, this.y, this.width, this.height);
@@ -48,7 +52,7 @@
         let inter = setInterval(() => {
 
             carre.clear();
-            carre.x += 10;
+            carre.move(10);
             carre.draw();
 
             if (carre.x + carre.width >= canvas.width - 10) clearInterval(inter);
