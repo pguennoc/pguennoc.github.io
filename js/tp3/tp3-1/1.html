@@ -32,6 +32,7 @@
 
     let canvas = document.getElementById('animatedElem');
     let ctx = canvas.getContext("2d");
+    let carre = new Carre(30, 30, ctx, 10 , 10);
 
     function pausecomp(millis) 
 	{
@@ -42,23 +43,23 @@
 		} while(curDate-date < millis);
 	}
 
-    function translation (carre)
+    function translation (p)
     {
-        for (let i = 0; i*10 < 100; i++) {
+        let inter = setInterval(() => {
 
-            pausecomp(1000); 
             carre.clear();
             carre.x += 10;
             carre.draw();
 
-            console.log(i);
-        }
+            if (carre.x + carre.width >= canvas.width - 10) clearInterval(inter);
+
+            pausecomp(p)
+
+        }, 16);
     }
 
     window.addEventListener("load", () => {
-        let C = new Carre(30, 30, ctx, 10 , 10);
-        
-        translation(C);
+        translation(50);
     });
     
 
