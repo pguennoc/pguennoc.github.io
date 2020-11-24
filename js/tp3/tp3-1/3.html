@@ -47,7 +47,7 @@
 		} while(curDate-date < millis);
 	}
 
-    function translation (tps)
+    function translation ()
     {
 
         let delta = new Date()-lastFrame;
@@ -65,12 +65,16 @@
         pausecomp(tps)
     }
 
-    window.addEventListener("load", () => {
+    function start(tps)
+    {
         lastFrame = new Date();
-
         animation = requestAnimationFrame(translation);
 
-        translation(100);
+        translation();
+    }
+
+    window.addEventListener("load", () => {
+        start(33);
     });
     
 
