@@ -27,7 +27,5 @@ self.addEventListener('fetch', function (event) {
             cache.put(event.request, response);
         });
         return response.clone();
-    }).catch(function () {
-        return caches.match('/sw-test/gallery/myLittleVader.jpg');
     }));
 });
