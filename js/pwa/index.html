@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Worker</title>
+</head>
+<body>
+    <p>PWA app</p>
+    <script>
+        window.addEventListener('load', () => { 
+      		registerSW(); 
+          
+          var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+          var url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
+          var options = {
+
+          }
+
+          fetch( cors_api_url + url
+          ).then(function(response){
+              return response.text();
+          }).then(function(text){
+              console.log(test);
+          });
+        });
+        
+        async function registerSW() { 
+      		if ('serviceWorker' in navigator) { 
+        		try { 
+          			await navigator.serviceWorker.register('serviceworker.js'); 
+        		} 
+        		catch (e) { 
+          			console.log('SW registration failed'); 
+        		} 
+      		} 
+    	} 
+    </script>
+</body>
+</html>
