@@ -12,13 +12,14 @@
     <script>
         async function registerSW() {
             if ('serviceWorker' in navigator) {
-                try {
-                    await navigator.serviceWorker.register('serviceworker.js');
-                }
-                catch (e) {
-                    console.log('SW registration failed');
-                }
-            }
+                navigator.serviceWorker.register('/js/pwa/serviceworker.js', { scope: '/js/pwa/' }).then(function (reg) {
+                    // registration worked
+                    console.log('Registration succeeded. Scope is ' + reg.scope);
+                }).catch(function (error) {
+                    // registration failed
+                    console.log('Registration failed with ' + error);
+                });
+            };
         }
 
         window.addEventListener('load', () => {
