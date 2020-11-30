@@ -8,6 +8,8 @@ self.addEventListener('install', function(event) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/js/pwa/',
+        '/js/pwa/index.html',
+        '/js/pwa/serviceworker.js',
         'https://cors-anywhere.herokuapp.com/https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
       ]);
     })
