@@ -4,8 +4,7 @@ var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
 var url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
 
 var filesToCache = [
-    '/js/pwa/index.html',
-    '/js/pwa/serviceworkers.js',
+    '/js/pwa/',
 	'https://cors-anywhere.herokuapp.com/https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
 ]
 
