@@ -10,6 +10,17 @@
 <body>
     <p>PWA app</p>
     <script>
+        async function registerSW() {
+            if ('serviceWorker' in navigator) {
+                try {
+                    await navigator.serviceWorker.register('serviceworker.js');
+                }
+                catch (e) {
+                    console.log('SW registration failed');
+                }
+            }
+        }
+
         window.addEventListener('load', () => {
             //registerSW();
 
@@ -24,18 +35,6 @@
             });
         });
 
-        /*
-        async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                try {
-                    await navigator.serviceWorker.register('serviceworker.js');
-                }
-                catch (e) {
-                    console.log('SW registration failed');
-                }
-            }
-        }
-        */
     </script>
 </body>
 
