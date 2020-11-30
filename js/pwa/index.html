@@ -28,7 +28,7 @@
             let cors_api_url = 'https://cors-anywhere.herokuapp.com/';
             let url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
 
-            fetch(cors_api_url + url
+            fetch('https://cors-anywhere.herokuapp.com/https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
             ).then(function (response) {
                 return response.text();
             }).then(function (text) {
